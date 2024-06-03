@@ -1,1 +1,16 @@
 = My NixOS configurations
+
+just a reminder:
+
+[source,nix]
+----
+# variable
+let
+    var = "some string";
+in {
+    use.like.this.${var} = [
+        ./one
+        ./two
+    ];
+};
+----
