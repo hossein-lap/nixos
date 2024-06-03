@@ -1,7 +1,47 @@
 = My NixOS configurations
 
-just a reminder:
+[WARNING]
+I got some deprecation wanrings before. I'm not sure that they've been fixed
+or not, they suddenly didn't show up anymore.
 
+== just a reminder
+
+NixOS is a Linux distrbution that uses the Nix Programming language at its best
+to have a declaretive approach for deploying the system.
+
+A very quick look at the nix's syntax:
+
+=== Data types
+[source,nix]
+----
+# strings
+"a"
+
+# numbers (aka integers)
+26
+
+# booleans
+true / false
+
+# paths
+./gui/nvidia.nix
+
+# arrays (aka lists)
+[1 2 3];
+[ # more arrays
+    "a"
+    "b"
+    "c"
+];
+
+# objects (aka sets)
+{
+    user = "hos";
+    uuid = 1000;
+};
+----
+
+=== Variables
 [source,nix]
 ----
 # variable
@@ -14,3 +54,77 @@ in {
     ];
 };
 ----
+
+=== Run code
+[source,console]
+----
+$ nix-instantiate --eval <file>.nix
+----
+
+=== Access values
+
+.accessing sets
+[source,nix]
+----
+{
+    user = "hos";
+    uuid = 1000;
+}.user; # "hos"
+----
+
+.`with` keyword
+[source,nix]
+----
+let
+    set = {
+        x = "foo";
+        y = "bar";
+    };
+in with set;
+    x + y # "foobar"
+----
+
+.create functions
+[source,nix]
+----
+let
+    square = x; x * y;
+in
+    square 16; # 256
+----
+
+[source,nix]
+----
+let
+    test = {a, b}: 2 * (a + b);
+in
+    test { a = 1; b = 2 }
+----
+
+.`...` unlimited arguments
+[source,nix]
+----
+let
+    test = {a, ...}@args: 2 * (a + args.b);
+in
+    test { a = 1; b = 2 }
+----
+
+== TODO
+
+* [ ] neovim config
+* [ ] add desktop/window managers
+* [ ] add power-saving and performance mode profiles
+* [ ] add `disko` config
+
+== Links
+
+* https://nixos.org/download[download NixOS]
+* https://nixos.org/manual/nixos/stable[NixOS Manual]
+* https://search.nixos.org/packages[Search packages]
+* https://github.com/nix-community/disko/tree/master/example[disko examples]
+* https://nix.dev/manual/nix/2.22/introduction[Nix Reference Manual]
+* https://nixos.org/guides/nix-pills/06-our-first-derivation[Nix Pills]
+* https://home-manager-options.extranix.com/[Home Manager Option Search]
+* https://zero-to-nix.com/[Zero to Nix]
+* https://edolstra.github.io/pubs/phd-thesis.pdf[PhD Thesis]
