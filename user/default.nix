@@ -1,8 +1,8 @@
 { config, ... }:
 {
-    import = [
+    imports = [
         ./vim.nix
-        ./home.nix
+        # ./home.nix
         # ./shell.nix # FIXME: arguments are broken
         ./users.nix
     ];

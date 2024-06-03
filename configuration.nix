@@ -7,9 +7,9 @@
 {
   imports =
     [
-        ./hardware
-        ./user
-        ./gui
+        ./hardware/default.nix
+        ./user/default.nix
+        ./gui/default.nix
     ];
 
   # flakes

@@ -13,27 +13,24 @@
     outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }:
         let
             system = "x86_64-linux";
+            myhostname = "nixos";
         in {
-                          # hostname: nixos
-        nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+        nixosConfigurations.${myhostname} = nixpkgs.lib.nixosSystem {
             inherit system;
 
             modules = [
                 nixos-hardware.nixosModules.asus-fx506hm
-                ./vim.nix
-                # ./shell.nix
-                ./users.nix
-                ./nvidia.nix
-                ./plasma.nix
                 ./configuration.nix
-                ./hardware-configuration.nix
+                ./hardware/default.nix
+                ./user/default.nix
+                ./gui/default.nix
             ];
         };
 
         homeConfigurations.hos = home-manager.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages.${system};
             modules = [
-                ./home.nix
+                ./user/home.nix
             ];
         };
     };
