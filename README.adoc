@@ -24,7 +24,7 @@ A very quick look at the nix's syntax:
 true / false
 
 # paths
-./gui/nvidia.nix
+./hardware/nvidia.nix
 
 # arrays (aka lists)
 [1 2 3];
