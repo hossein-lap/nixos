@@ -104,7 +104,7 @@
   programs.tmux = {
     enable = true;
     clock24 = true;
-    shell = "${pkgs.mksh}/bin/mksh";
+    # shell = "${pkgs.mksh}/bin/mksh";
     baseIndex = 1;
     terminal = "screen-256color";
 
