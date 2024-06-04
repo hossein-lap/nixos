@@ -112,13 +112,16 @@
   environment.systemPackages = with pkgs; [
     # Nano is installed by default
     home-manager
+    bc
+    stow
+    pwgen
     vim
     neovim
     mg
     fzf
     ripgrep
     fd
-	highlight
+    highlight
     git
     tmux
     wget
@@ -129,11 +132,13 @@
     nsxiv
     libvirt
     qemu
+    # LSPs
     clang-tools_18
     lua-language-server
     ruby-lsp
-    ruby
     gopls
+    # LSPs
+    ruby
     mpv
     mpd
     nekoray
@@ -141,7 +146,6 @@
     yt-dlp
     gcc
     gnumake
-    pass
     groff
     pandoc
     asciidoctor-with-extensions
