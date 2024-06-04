@@ -1,4 +1,5 @@
 all:
-	nixos-rebuild test --flake . --show-trace
+	nix run . -- build --flake .
+
 install:
-	nixos-rebuild switch --flake . --show-trace
+	nix run . -- switch --flake .

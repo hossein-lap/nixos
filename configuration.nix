@@ -10,6 +10,7 @@
         ./hardware/default.nix
         ./user/default.nix
         ./gui/default.nix
+        # <home-manager/nixos>
     ];
 
   # flakes

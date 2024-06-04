@@ -36,7 +36,7 @@
         nnoremap <silent> ]b :bnext<CR>
         nnoremap <silent> [b :bprev<CR>
         hi! Normal ctermbg=NONE guibg=NONE
-        " hi! StatusLine ctermbg=232 guibg='#080808' ctermfg=darkblue guifg=darkblue
+        hi! StatusLine ctermbg=232 guibg='#080808' ctermfg=darkblue guifg=darkblue
         set showtabline=2
       '';
     }
