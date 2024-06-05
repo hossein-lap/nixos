@@ -15,7 +15,8 @@
         pkgs.cowsay
     ];
     home.file = {
-        ".mkshrc".source = dotfiles/mkshrc;
+        # ".mkshrc".source = dotfiles/mkshrc;
+        ".screenrc".source = dotfiles/screenrc;
     };
     home.sessionVariables = {
         EDITOR = "nvim";
