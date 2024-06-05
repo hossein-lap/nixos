@@ -14,9 +14,9 @@
         # pkgs.zsh
         pkgs.cowsay
     ];
-    # home.file = [
-    # # 
-    # ];
+    home.file = {
+        ".mkshrc".source = dotfiles/mkshrc;
+    };
     home.sessionVariables = {
         EDITOR = "nvim";
         VISUAL = "nvim";

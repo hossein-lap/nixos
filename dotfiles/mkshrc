@@ -1,0 +1,29 @@
+# # mksh config
+# name="${HOME}/.config/shell/mkshrc"
+# if [ -f "${name}" ]; then
+#     source "${name}"
+# fi
+# unset name
+
+
+# Prompt
+# PS1=$'\E[106m\E[30m  \E[39m\E[40m'' ${PWD/#"$HOME"/\~} '$'\E[0m '
+# PS1=$'\E[39m\E[40m'' ${PWD/#"$HOME"/\~} '$'\E[0m '
+PS1=$'\E[33m\E[20m\$\E[32m\E[20m'' ${PWD/#"$HOME"/\~}'$'\E[0m '
+# PS1="\$ ${PWD/#"$HOME"/\~} "
+
+bind ^[a=beginning-of-line
+bind ^[e=end-of-line
+bind ^L=clear-screen
+# bind ^F tmux-sessionizer
+
+HISTFILE=$HOME/.mksh_history
+HISTSIZE=10104096
+
+# . ~/.mksh/key-bindings.mksh
+# . ~/.mksh/completion.mksh
+
+if [ -f ~/.config/shell/aliases.sh ]; then
+    . ~/.config/shell/aliases.sh
+fi
+
