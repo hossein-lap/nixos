@@ -16,6 +16,9 @@
   # flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # shells
+  environment.shells = with pkgs; [ bash ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -129,7 +132,7 @@
     aria2
     ffmpeg
     imagemagick
-    mksh
+    # mksh
     nsxiv
     libvirt
     qemu

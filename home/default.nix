@@ -2,14 +2,16 @@
     imports = [
         ./tmux.nix
         ./vim.nix
-        ./bash.nix
+        ./shell.nix
         ./pass.nix
+        # ./zsh.nix
     ];
     home.username = "hos";
     home.homeDirectory = "/home/hos";
     home.packages = [
         # pkgs.nixpkgs-fmt
         pkgs.screen
+        # pkgs.zsh
         pkgs.cowsay
     ];
     # home.file = [
@@ -33,4 +35,5 @@
     };
     home.stateVersion = "24.05"; # To figure this out you can comment out the line and see what version it expected.
     programs.home-manager.enable = true;
+
 }
