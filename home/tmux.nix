@@ -4,7 +4,7 @@
   programs.tmux = {
     enable = true;
     clock24 = true;
-    # shell = "${pkgs.mksh}/bin/mksh";
+    shell = "${pkgs.zsh}/bin/zsh";
     baseIndex = 1;
     terminal = "screen-256color";
 
@@ -24,7 +24,7 @@
 
     extraConfig = '' # used for less common options, intelligently combines if defined in multiple places.
       BORDFG="blue"
-      BORDBG="default"
+      BORDBG="black"
       SEP1FG="#777777"
       SEP2FG="#777777"
       SEP1BG=$BORDBG

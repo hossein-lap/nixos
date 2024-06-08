@@ -8,11 +8,12 @@
     ];
     home.username = "hos";
     home.homeDirectory = "/home/hos";
-    home.packages = [
-        # pkgs.nixpkgs-fmt
-        pkgs.screen
-        # pkgs.zsh
-        pkgs.cowsay
+    home.packages = with pkgs; [
+        # nixpkgs-fmt
+        cowsay
+        lolcat
+        lowdown
+        screen
     ];
     home.file = {
         ".mkshrc".source = ../dotfiles/mkshrc;

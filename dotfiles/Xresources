@@ -1,0 +1,32 @@
+Xft.dpi:   120
+
+xterm*background:   black
+xterm*foreground:   white
+xterm*renderFont: true
+xterm*faceName: Monospace
+xterm*faceSize: 18
+xterm*boldMode: false
+
+xterm*cursorColor: #ff7700
+
+! solarized-dark-patched
+xterm*background           : #001e26
+xterm*foreground           : #708183
+xterm*cursorColor          : #708183
+xterm*color0               : #002731
+xterm*color8               : #465a61
+xterm*color1               : #d01b24
+xterm*color9               : #bd3612
+xterm*color2               : #728905
+xterm*color10              : #465a61
+xterm*color3               : #a57705
+xterm*color11              : #52676f
+xterm*color4               : #2075c7
+xterm*color12              : #708183
+xterm*color5               : #c61b6e
+xterm*color13              : #5856b9
+xterm*color6               : #259185
+xterm*color14              : #81908f
+xterm*color7               : #e9e2cb
+xterm*color15              : #fcf4dc
+

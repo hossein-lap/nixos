@@ -16,9 +16,9 @@
       syntax on
       set background=dark
       " set t_Co=256
-      " colorscheme lunaperche
+      colorscheme lunaperche
       " colorscheme torte
-      colorscheme slate
+      " colorscheme slate
       set wildmenu wildmode=full
       set foldmethod=marker
       set splitbelow splitright

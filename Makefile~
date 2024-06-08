@@ -1,0 +1,8 @@
+all:
+	nix run -v . -- build --flake .
+
+install:
+	nix run . -- switch --flake .
+
+test:
+	nixos-rebuild --flake .#"nixos"

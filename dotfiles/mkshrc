@@ -53,9 +53,9 @@ function precmd {
 }
 
 function gitstat() {
-    name=$(git branch 2>/dev/null | grep '\*' | cut -d' ' -f2)
+    name=$(git branch 2>/dev/null | grep '\*' | cut -d' ' -f2 | tr -d '\n')
     if (( name )); then
-        printf 'git:(%s)' ${name}
+        print -n "git:(${name})"
     fi
 }
 

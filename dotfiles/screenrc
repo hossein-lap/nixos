@@ -1,19 +1,11 @@
-# General settings
-vbell on
-vbell_msg '!Bell!'
+caption always "%{= kW}%{y}[%S] %w %= \"%H%?\" (%l%?) %y-%m-%d %c"
+term screen-256color
+# attrcolor b ".I"   # allow bold colors - necessary for some reason
+defbce on            # use current bg color for erased chars
+
 autodetach on
 startup_message off
-defscrollback 10000
-# Termcapinfo for xterm
-termcapinfo xterm* Z0=E[?3h:Z1=E[?3l:is=E[rE[mE[2JE[HE[?7hE[?1;4;6l # Do not resize window
-termcapinfo xterm* OL=1000 # Increase output buffer for speed
-# Remove various keyboard bindings
-bind x # Do not lock screen
-bind ^x # Idem
-bind h # Do not write out copy of screen to disk
-bind ^h # Idem
-bind ^ # Do not kill all windows/exit screen
-bind . # Disable dumptermcap
-# Add keyboard bindings
-bind } history
-bind k kill
+hardstatus alwayslastline
+# hardstatus alwaysfirstline
+shelltitle ''
+

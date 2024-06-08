@@ -17,7 +17,8 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # shells
-  environment.shells = with pkgs; [ bash ];
+  # programs.zsh.enable = true;
+  environment.shells = with pkgs; [ bash zsh mksh ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -84,7 +85,10 @@
   # $ nix search wget
 
   # docker installation
-  virtualisation.docker.enable = true;
+  virtualisation = {
+      docker.enable = true;
+      waydroid.enable = true;
+  };
 
     # fonts {{{
     fonts = {
@@ -116,6 +120,7 @@
   environment.systemPackages = with pkgs; [
     # Nano is installed by default
     home-manager
+    weston
     bc
     stow
     pwgen
@@ -128,6 +133,7 @@
     highlight
     git
     tmux
+    screen
     wget
     aria2
     ffmpeg
