@@ -1,8 +1,10 @@
 { pkgs, ... }:
+
 {
-  imports = [
-    ./vim.nix
+  imports =
+  [ ./vim.nix
     # ./shell.nix
+    ./game.nix
   ];
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users = {
@@ -10,11 +12,12 @@
       shell = pkgs.zsh;
       isNormalUser = true;
       description = "hos";
+      # initialPassword = "nixos";
       extraGroups = [ "networkmanager" "wheel" "kvm" "docker" ];
-      packages = with pkgs; [
-        # thunderbird
+      packages = with pkgs;
+      [ xclip
         # gitmux
-        xclip
+        # thunderbird
         xterm
         tabbed
         steam
@@ -27,7 +30,7 @@
         # comixcursors
         emacs
         kitty
-        obs-studio
+        # obs-studio
         catimg
         fastfetch
         google-chrome
@@ -35,7 +38,5 @@
         # screen
       ];
     };
-
   };
-
 }
