@@ -17,7 +17,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # shells
-  # programs.zsh.enable = true;
+  programs.zsh.enable = true;
   environment.shells = with pkgs; [ bash zsh mksh ];
 
   # Bootloader.
@@ -179,8 +179,6 @@
     enable = true;
     enableSSHSupport = true;
   };
-
-  # tmux
 
   # List services that you want to enable:
 
