@@ -1,6 +1,5 @@
-{ config, ... }:
-{
-    imports = [
-        ./hos.nix
-    ];
+{ config, ... }: {
+  imports = [
+    ./hos.nix
+  ];
 }

@@ -138,7 +138,7 @@
     aria2
     ffmpeg
     imagemagick
-    # mksh
+    mksh
     nsxiv
     libvirt
     qemu
