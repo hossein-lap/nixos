@@ -1,8 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  home.packages =
-  [ pkgs.nudoku
+  home.packages = with pkgs;
+  [ nudoku
+    bastet
+    steam
     # pkgs.tcsh
     # pkgs.mksh
     # pkgs.bash

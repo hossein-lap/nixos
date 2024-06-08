@@ -9,6 +9,7 @@
     # ./zsh.nix
     ./game.nix
   ];
+  nixpkgs.config.allowUnfree = true;
   programs.home-manager.enable = true;
   home.username = "hos";
   home.homeDirectory = "/home/hos";
@@ -17,14 +18,21 @@
     cowsay
     lolcat
     lowdown
-    screen
+    # obs-studio
+    telegram-desktop
+    discord
+    vscodium
+    emacs
+    kitty
+    google-chrome
+    lf
   ];
-  home.file = {
-    ".mkshrc".source = ../dotfiles/mkshrc;
+  home.file =
+  { ".mkshrc".source = ../dotfiles/mkshrc;
     ".screenrc".source = ../dotfiles/screenrc;
   };
-  home.sessionVariables = {
-    EDITOR = "nvim";
+  home.sessionVariables =
+  { EDITOR = "nvim";
     VISUAL = "nvim";
     PDFVIEWER_texdoc = "zathura";
     XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";

@@ -19,22 +19,13 @@
         # thunderbird
         xterm
         tabbed
-        steam
-        telegram-desktop
-        discord
-        # vscodium
         simp1e-cursors
         papirus-icon-theme
         tree-sitter
         # comixcursors
-        emacs
-        kitty
-        # obs-studio
         catimg
         fastfetch
-        google-chrome
-        lf
-        # screen
+        screen
       ];
     };
   };

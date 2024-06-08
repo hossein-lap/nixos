@@ -9,3 +9,6 @@ install:
 test:
 	nixos-rebuild test --flake ./
 	# nixos-rebuild --flake .#"nixos"
+
+manager:
+	home-manager switch --flake ./
