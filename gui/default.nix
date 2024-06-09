@@ -1,6 +1,6 @@
 { config, ... }:
 {
     imports = [
-        ./plasma.nix
+        ./plasma6.nix
     ];
 }
