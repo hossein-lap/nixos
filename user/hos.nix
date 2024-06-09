@@ -12,7 +12,7 @@
       isNormalUser = true;
       description = "hos";
       # initialPassword = "nixos";
-      extraGroups = [ "networkmanager" "wheel" "kvm" "docker" ];
+      extraGroups = [ "networkmanager" "wheel" "kvm" "docker" "adbusers" ];
       packages = with pkgs;
       [ xclip
         # gitmux

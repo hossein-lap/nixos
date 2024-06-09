@@ -5,11 +5,14 @@
     # services.desktopManager.plasma6.enable = true;
     # displayManager.defaultSession = "plasma";
     services = {
-        displayManager.sddm.enable = true;
-        desktopManager = {
-            plasma6.enable = true;
+        desktopManager.plasma6.enable = true;
+        displayManager = {
+            sddm = {
+                enable = true;
+                wayland.enable = true;
+            };
+            defaultSession = "plasma";
         };
-        displayManager.defaultSession = "plasma";
     };
 
     environment.systemPackages = with pkgs; [

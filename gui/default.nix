@@ -1,7 +1,8 @@
 { config, ... }:
 {
+    # choose your desktop/window manager
     imports = [
-        ./plasma6.nix
-        # ./cinnamon.nix
+        # ./plasma6.nix
+        ./cinnamon.nix
     ];
 }

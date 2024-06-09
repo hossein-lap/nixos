@@ -33,7 +33,7 @@
       # };
       firewall = {
           # allowedTCPPorts = [ ... ];
-          allowedUDPPorts = [ 57 ];
+          allowedUDPPorts = [ 53 67 ];
           # enable = false;
       };
   };
@@ -44,12 +44,9 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
-
-  # Configure keymap in X11
+  # Configure X11
   services.xserver = {
+    enable = true;
     # xkb.layout = "us";
     xkb.variant = "";
     xkb.layout = "us,ir";
@@ -175,6 +172,9 @@
     lua54Packages.lua
     lua54Packages.luarocks
   ];
+
+  # android
+  programs.adb.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
