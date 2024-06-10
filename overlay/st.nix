@@ -4,7 +4,7 @@
     version = "1.0.0";
     src = fetchTarball {
         url = "https://gitlab.com/hos-workflow/st/-/archive/master/st-master.tar.gz";
-        sha256 = "1598gn1lqinmwsh83fxdxaanrhx1q27d2l4sb09xwpiwxdp1grp5";
+        sha256 = "19z8bpiw3axqw52w1mjc7mdxn6ijbpwyp5yciggz4rc7k3y9abhq";
     };
     buildInputs = oldAttrs.buildInputs ++ (with super; [ harfbuzz ]);
   });

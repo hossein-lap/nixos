@@ -1,6 +1,6 @@
 with import <nixpkgs> {};
 
-(st.overrideAttrs (oldAttrs: rec {
+(tabbed.overrideAttrs (oldAttrs: rec {
     # src = fetchFromGitHub {
     #   owner = "LukeSmithxyz";
     #   repo = "st";
@@ -11,7 +11,7 @@ with import <nixpkgs> {};
     buildInputs = oldAttrs.buildInputs ++ [ harfbuzz ];
     # If you want it to be always up to date use fetchTarball instead of fetchFromGitHub
     src = builtins.fetchTarball {
-      url = "https://gitlab.com/hos-workflow/st/-/archive/master/st-master.tar.gz";
-      sha256 = "19z8bpiw3axqw52w1mjc7mdxn6ijbpwyp5yciggz4rc7k3y9abhq";
+      url = "https://gitlab.com/hos-workflow/tabbed/-/archive/master/tabbed-master.tar.gz";
+      sha256 = "0hyggbw5a9z5swxm51g4ygg637vr1ag8p6139y1j6qd1vwc3cc3z";
     };
 }))

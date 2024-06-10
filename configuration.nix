@@ -14,6 +14,7 @@
 
   nixpkgs.overlays = [
     (import ./overlay/st.nix)
+    (import ./overlay/tabbed.nix)
   ];
 
   # flakes

@@ -1,13 +1,16 @@
 all:
-	nixos-rebuild build --flake ./
-	# nix run -v . -- build --flake .
-
-install:
-	nixos-rebuild switch --flake ./
+	sudo nixos-rebuild switch --flake ./
+	make manager
 # 	nix run . -- switch --flake .
 
+build:
+	sudo nixos-rebuild build --flake ./
+	home-manager build --flake ./
+	# nix run -v . -- build --flake .
+
 test:
-	nixos-rebuild test --flake ./
+	sudo nixos-rebuild test --flake ./
+	home-manager test --flake ./
 	# nixos-rebuild --flake .#"nixos"
 
 manager:
