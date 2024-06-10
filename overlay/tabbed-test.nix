@@ -12,6 +12,6 @@ with import <nixpkgs> {};
     # If you want it to be always up to date use fetchTarball instead of fetchFromGitHub
     src = builtins.fetchTarball {
       url = "https://gitlab.com/hos-workflow/tabbed/-/archive/master/tabbed-master.tar.gz";
-      sha256 = "0hyggbw5a9z5swxm51g4ygg637vr1ag8p6139y1j6qd1vwc3cc3z";
+      sha256 = "";
     };
 }))
