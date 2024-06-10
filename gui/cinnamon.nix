@@ -7,6 +7,8 @@
 
   environment.systemPackages = with pkgs; [
     geany-with-vte
+    vte
     guake
+    rhythmbox
   ];
 }

@@ -30,6 +30,7 @@
   home.file =
   { ".mkshrc".source = ../dotfiles/mkshrc;
     ".screenrc".source = ../dotfiles/screenrc;
+    ".Xresources".source = ../dotfiles/Xresources;
   };
   home.sessionVariables =
   { EDITOR = "nvim";

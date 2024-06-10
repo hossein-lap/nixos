@@ -31,7 +31,7 @@
 
         nixosConfigurations = {
             # FIXME replace with your hostname
-            nixos = nixpkgs.lib.nixosSystem {
+            primejade = nixpkgs.lib.nixosSystem {
                 specialArgs = {inherit inputs outputs;};
                 modules = [
                     # > Our main nixos configuration file <
