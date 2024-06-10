@@ -35,6 +35,7 @@
 
   # Configure X11
   services.xserver = {
+    dpi = 120;
     # xkb.layout = "us";
     xkb.variant = "";
     xkb.layout = "us,ir";
