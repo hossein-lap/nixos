@@ -30,3 +30,4 @@ xterm*color14              : #81908f
 xterm*color7               : #e9e2cb
 xterm*color15              : #fcf4dc
 
+st*font: FiraCode Nerd Font Mono:size=18
