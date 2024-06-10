@@ -8,7 +8,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users = {
     "hos" = {
-      shell = pkgs.zsh;
+      # shell = pkgs.zsh;
       isNormalUser = true;
       description = "hos";
       # initialPassword = "nixos";
@@ -26,6 +26,7 @@
         catimg
         fastfetch
         screen
+        hugo
       ];
     };
   };

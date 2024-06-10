@@ -6,7 +6,6 @@
     ./vim.nix
     ./shell.nix
     ./pass.nix
-    # ./zsh.nix
     ./game.nix
   ];
   nixpkgs.config.allowUnfree = true;

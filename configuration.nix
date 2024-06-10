@@ -12,6 +12,10 @@
       # <home-manager/nixos>
     ];
 
+  nixpkgs.overlays = [
+    (import ./overlay/st.nix)
+  ];
+
   # flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -133,10 +137,12 @@
     highlight
     git
     tmux
+    st
     screen
     wget
     aria2
     ffmpeg
+    btop
     imagemagick
     mksh
     nsxiv
@@ -185,7 +191,7 @@
 
   # List services that you want to enable:
   # shells
-  programs.zsh.enable = true;
+  # programs.zsh.enable = true;
   environment.shells = with pkgs; [ bash ];
 
   # Enable the OpenSSH daemon.
