@@ -1,8 +1,8 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
-  [ ./nvidia.nix
-    ./hardware-configuration.nix
+  [ ./hardware-configuration.nix
+    ./nvidia.nix
   ];
 }

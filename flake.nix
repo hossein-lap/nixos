@@ -13,7 +13,7 @@
     };
 
     outputs = {self, nixpkgs, nixos-hardware, home-manager, ...}@inputs: let
-    inherit (self) outputs;
+        inherit (self) outputs;
         # Supported systems for your flake packages, shell, etc.
         systems = [
           # "aarch64-linux"

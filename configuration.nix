@@ -15,17 +15,33 @@
   # flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # shells
-  programs.zsh.enable = true;
-  environment.shells = with pkgs; [ bash zsh mksh ];
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  networking.hostName = "primejade";
+  networking.networkmanager.enable = true;
+
+  # Set your time zone.
+  time.timeZone = "Asia/Tehran";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+
+  services.xserver.enable = true;
+
+  # Configure X11
+  services.xserver = {
+    # xkb.layout = "us";
+    xkb.variant = "";
+    xkb.layout = "us,ir";
+    xkb.options = "grp:alt_caps_toggle";
+  };
+
   networking = {
-      hostName = "nixos"; # Define your hostname.
-      networkmanager.enable = true;
       # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
       # proxy = {
       #     default = "http://user:password@proxy:port/";
@@ -37,24 +53,6 @@
           # enable = false;
       };
   };
-
-  # Set your time zone.
-  time.timeZone = "Asia/Tehran";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  # Configure X11
-  services.xserver = {
-    enable = true;
-    # xkb.layout = "us";
-    xkb.variant = "";
-    xkb.layout = "us,ir";
-    xkb.options = "grp:alt_caps_toggle";
-  };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -185,6 +183,9 @@
   };
 
   # List services that you want to enable:
+  # shells
+  programs.zsh.enable = true;
+  environment.shells = with pkgs; [ bash ];
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
