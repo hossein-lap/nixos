@@ -127,6 +127,7 @@
     home-manager
     weston
     bc
+    ed
     stow
     pwgen
     vim
