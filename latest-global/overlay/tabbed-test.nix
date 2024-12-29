@@ -11,8 +11,7 @@ with import <nixpkgs> {};
     buildInputs = oldAttrs.buildInputs ++ [ harfbuzz ];
     # If you want it to be always up to date use fetchTarball instead of fetchFromGitHub
     src = builtins.fetchTarball {
-      url = "https://gitlab.com/hos-workflow/tabbed/-/archive/master/tabbed-master.tar.gz";
-      # sha256 = "1y0gk7sfylgmcxybjlpm1a3falnk5048gkwxdixaaff875b8i9ab";
-      sha256 = "";
+        url = "https://gitlab.com/hos-workflow/tabbed/-/archive/master/tabbed-master.tar.gz";
+        sha256 = "1k5cnl36c7cv7fi8aayk312fhbn54yjazvn8iqnm1242369a1v38";
     };
 }))

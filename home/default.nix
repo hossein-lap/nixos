@@ -20,7 +20,7 @@
     # obs-studio
     telegram-desktop
     discord
-    vscodium
+    # vscodium
     emacs
     kitty
     google-chrome

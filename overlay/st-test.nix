@@ -12,6 +12,7 @@ with import <nixpkgs> {};
     # If you want it to be always up to date use fetchTarball instead of fetchFromGitHub
     src = builtins.fetchTarball {
       url = "https://gitlab.com/hos-workflow/st/-/archive/master/st-master.tar.gz";
-      sha256 = "";
+      sha256 = "1axnd8mb5362rs90dk1393hd7bgyknxq461wshrzvc5ip639b36a";
+      # sha256 = "1xcxg7pvb6g6ppc9c3vl24jii56ibfy93al0msiy19pm3k2dlxmq";
     };
 }))

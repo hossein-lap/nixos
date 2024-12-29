@@ -23,6 +23,8 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  # boot.kernelParams = ["quiet"];
+  # boot.plymouth.enable = true;
 
   networking.hostName = "primejade";
   networking.networkmanager.enable = true;
@@ -33,32 +35,19 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
   services.xserver.enable = true;
 
   # Configure X11
   services.xserver = {
-    dpi = 120;
+    # dpi = 120;
     # xkb.layout = "us";
     xkb.variant = "";
     xkb.layout = "us,ir";
     xkb.options = "grp:alt_caps_toggle";
   };
 
-  networking = {
-      # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-      # proxy = {
-      #     default = "http://user:password@proxy:port/";
-      #     noProxy = "127.0.0.1,localhost,internal.domain";
-      # };
-      firewall = {
-          # allowedTCPPorts = [ ... ];
-          allowedUDPPorts = [ 53 67 ];
-          # enable = false;
-      };
-  };
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -86,14 +75,28 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.joypixels.acceptLicense = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  networking = {
+      # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+      # proxy = {
+      #     default = "http://user:password@proxy:port/";
+      #     noProxy = "127.0.0.1,localhost,internal.domain";
+      # };
+      firewall = {
+          # allowedTCPPorts = [ ... ];
+          allowedUDPPorts = [ 53 67 ];
+          # enable = false;
+      };
+  };
 
   # docker installation
   virtualisation = {
       docker.enable = true;
       waydroid.enable = true;
+      libvirtd.enable = true;
   };
+
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
 
     # fonts {{{
     fonts = {
@@ -130,7 +133,7 @@
     ed
     stow
     pwgen
-    vim
+    vim_configurable
     neovim
     mg
     fzf

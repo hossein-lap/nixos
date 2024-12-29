@@ -25,6 +25,7 @@
             # };
 
             # package = config.boot.kernelPackages.nvidiaPackages.production;
+            # package = config.boot.kernelPackages.nvidiaPackages.stable;
 
             # Special config to load the latest (535 or 550) driver for the support of the 4070 SUPER
             package =
@@ -58,6 +59,7 @@
     in {
         offload.configuration = {
             system.nixos.tags = [ "offload" ];
+            environment.variables = { NIXOS_NVIDIA_CONFIG_TYPE = "offload"; };
             hardware.nvidia = {
                 prime = {
                     offload.enable = lib.mkForce true;
@@ -69,7 +71,9 @@
             };
         };
         sync.configuration = {
+            boot.kernelModules = [ "kvm-intel" "nvidia" "nvidia_drm" ];
             system.nixos.tags = [ "sync" ];
+            environment.variables = { NIXOS_NVIDIA_CONFIG_TYPE = "sync"; };
             hardware.nvidia = {
                 prime = {
                     offload.enable = lib.mkForce false;
