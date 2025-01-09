@@ -1,0 +1,1 @@
+test -f ~/.local/share/dwm/autostart.sh && source ~/.local/share/dwm/autostart.sh

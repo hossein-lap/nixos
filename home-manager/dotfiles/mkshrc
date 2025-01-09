@@ -1,0 +1,72 @@
+# Debian mksh
+# Skeleton ~/.mkshrc file adding a level of indirection
+
+# check if this is really mksh	# {((
+case ${KSH_VERSION:-} in
+*LEGACY\ KSH*|*MIRBSD\ KSH*) ;;
+*) \return 0 ;;
+esac				# }
+
+# customise your favourite editor here; first one found is used
+for EDITOR in "${EDITOR:-}" sensible-editor jupp jstar mcedit ed vi editor; do
+	EDITOR=$(\\builtin whence -p "$EDITOR") || EDITOR=
+	[[ -n $EDITOR && -x $EDITOR ]] && break
+	EDITOR=
+done
+
+# source the system-wide mkshrc file
+[[ -s /etc/mkshrc ]] && \. /etc/mkshrc
+
+# work around #813164
+\\builtin alias ls='ls -N'
+
+# hos prompt
+colorred=$(tput setaf 1)
+colorgreen=$(tput setaf 2)
+coloryellow=$(tput setaf 3)
+colorblue=$(tput setaf 4)
+colormagia=$(tput setaf 5)
+colorcyan=$(tput setaf 6)
+colorwhite=$(tput setaf 7)
+colorbold=$(tput bold)
+colorreset=$(tput sgr0)
+PS1='$(print ${colorgreen}${colorbold}${HOSTNAME}${colorreset}${colorwhite}:${colorred}[${colorbold}${colorblue}${USER}${colorreset}${colorred}]${colorwhite}:${colorbold}${colormagia}$(print ${PWD/$HOME/\~}))${colorbold}${coloryellow}\$${colorreset}$(local GB=$(git branch 2>/dev/null | grep \*;); if [ -n "${GB}" ]; then local GB="${colorbold} ${colorcyan}git(${colorred}${GB/* /}${colorcyan})"; print ${GB}; fi)${colorreset} '
+
+# prepend $debian_chroot support to PS1
+p=$'\001'
+if [[ ${PS1:1:1} = $'\r' ]]; then
+	p=${PS1:0:1}
+	PS1=${PS1:2}
+else
+	p=$'\001'
+fi
+[[ -z ${debian_chroot:-} && -r /etc/debian_chroot ]] && \
+    debian_chroot=$(</etc/debian_chroot)
+PS1=$p$'\r${debian_chroot:+'$p$'\e[0;1m'$p'($debian_chroot)'$p$'\e[0m'$p'}'$PS1
+# PS1='$(local WD=${PWD/$HOME/~}; if (( ${#WD} > 23 )); then print ${WD:0:10}...${WD: -10: -1}; else print $WD; fi) $(git branch 2>/dev/null | grep \*; )$(if (( USER_ID )); then print \$; else print \#; fi) '
+# PS1='$(print ${HOSTNAME}:[${USER}]:$(local WD=${PWD/$HOME/~}; print ${WD/$HOME/~}) $(git --no-pager branch 2>/dev/null | grep \*; ) )\$ '
+
+\\builtin unset p
+
+\: put your local alias/function definitions, patches, etc. here
+
+# fixup ncurses-term badness
+#[[ $TERM = screen.* ]] && TERM=screen
+
+# force sane environment (e.g. for scripting)
+#\\builtin unset LC_ADDRESS LC_COLLATE LC_CTYPE LC_IDENTIFICATION \
+#    LC_MEASUREMENT LC_MESSAGES LC_MONETARY LC_NAME LC_NUMERIC LC_PAPER \
+#    LC_TELEPHONE LC_TIME LANGUAGE LANG LC_ALL
+# optionally: switch to a slightly user-friendly and more portable locale
+#p=en_GB.utf8
+#\\builtin export LANG=C LC_CTYPE=$p LC_MEASUREMENT=$p LC_MESSAGES=$p LC_PAPER=$p
+#\\builtin unset p
+# and/or: Debian-specific libc feature (#609306, eglibc 2.13+)
+#\\builtin export LANG=C.UTF-8 LC_CTYPE=C.UTF-8
+#\\builtin export LC_ALL=C.UTF-8
+
+test -f "${HOME}/.config/shell/aliases.sh" && source "${HOME}/.config/shell/aliases.sh"
+test -f "${HOME}/.config/shell/env.sh" && source "${HOME}/.config/shell/env.sh"
+test -f "${HOME}/.config/shell/startup.sh" && source "${HOME}/.config/shell/startup.sh"
+
+\: make sure this is the last line, to ensure a good return code

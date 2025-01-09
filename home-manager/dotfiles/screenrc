@@ -1,0 +1,10 @@
+caption always "%{= kW}%{y}[%S] %w %= \"%H%?\" (%l%?) %y-%m-%d %c"
+term screen-256color
+# attrcolor b ".I"   # allow bold colors - necessary for some reason
+defbce on            # use current bg color for erased chars
+
+autodetach on
+startup_message off
+hardstatus alwayslastline
+# hardstatus alwaysfirstline
+shelltitle ''

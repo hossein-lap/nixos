@@ -1,0 +1,7 @@
+[Unit]
+Description="x11vnc server"
+Requires=display-manager.service
+After=display-manager.service
+
+[Service]
+ExecStart=
