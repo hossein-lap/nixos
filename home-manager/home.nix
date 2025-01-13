@@ -21,8 +21,8 @@
     # environment.
     home.packages = with pkgs; [
 
-        # terminal
-        kitty kitty-themes kitty-img kitti3
+        # # terminal
+        # kitty kitty-themes kitty-img kitti3
 
         # remote control
         anydesk x11vnc krdc

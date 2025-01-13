@@ -37,8 +37,9 @@ xscreensaver.passwd.thermometer.background:  #2E2E2E
 xscreensaver.passwd.thermometer.width:       8
 
 ! hos settings ---------------------------------------------------------------
-! system-wide
-#include </home/hos/.cache/wal/colors.Xresources>
+
+! ! system-wide
+! #include </home/hos/.cache/wal/colors.Xresources>
 
 ! xterm
 #include </home/hos/.config/X11/Xresources/xterm/tango>
@@ -54,13 +55,13 @@ dmenu*font: Monospace:size=10
 ! #include </home/hos/.config/X11/Xresources/dmenu/tango>
 
 ! st
-st*font: Noto Sans Mono:size=14
+st*font: Monospace:size=14
 st*image: /home/hos/.local/share/dwm/background.st
 st*borderpx: 20
 st*cursorColor: #f70000
-#include </home/hos/.config/X11/Xresources/st/hybrid>
+#include </home/hos/.config/X11/Xresources/st/tango>
 
 ! ! tabbed
-! #include </home/hos/.config/X11/Xresources/tabbed/gruvbox>
+! #include </home/hos/.config/X11/Xresources/tabbed/tango>
 
 

@@ -13,10 +13,10 @@
 	nixpkgs.overlays = [
 		(import ./overlay/st.nix)
 		(import ./overlay/farbfeld.nix)
-		# (import ./overlay/tabbed.nix)	# compile stage error
-		# (import ./overlay/dmenu.nix)	# fribidi.h header not found
+		(import ./overlay/tabbed.nix)
+		# (import ./overlay/dmenu.nix)
 		# (import ./overlay/dwmblocks.nix)
-		# (import ./overlay/dwm.nix)
+		(import ./overlay/dwm.nix)
 	];
 
 	# Bootloader.
@@ -37,12 +37,19 @@
 		};
 		waydroid.enable = true;
 	};
-	boot.kernelModules = [ "kvm-intel" ];
-	# boot.kernelModules = [ "kvm-intel" "vboxdrv" "vboxnetadp" "vboxnetflt" ];
+	# boot.kernelModules = [ "kvm-intel" ];
+	boot.kernelModules = [ "kvm-intel" "vboxdrv" "vboxnetadp" "vboxnetflt" ];
 
 	networking.hostName = "nix-work"; # Define your hostname.
 	networking.extraHosts = ''
-		192.168.30.23 peyman-virt
+		192.168.30.23	peyman-virt
+		192.168.50.27	gitlab.sinacomsys.local
+		192.168.50.29	jenkins.sinacomsys.local
+		192.168.50.51	nexus.sinacomsys.local
+		192.168.50.54	artifactory.sinacomsys.local
+		192.168.50.55	dashboard-devops.sinacomsys.local
+		192.168.21.16	jira.sinacomsys.local
+		# 192.168.21.16	confluence.sinacomsys.local
 	'';
 
 	# networking.wireless.enable = true;	# Enables wireless support via wpa_supplicant.
@@ -102,6 +109,12 @@
 	#	 # '';
 	# };
 
+	# services.xserver.desktopManager.cinnamon.enable = true;
+	# services.cinnamon.apps.enable = true;
+
+	# services.displayManager.lxdm = true;
+
+	services.xserver.windowManager.openbox.enable = true;
 	services.xserver.windowManager.dwm.enable = true;
 	services.dwm-status = {
 		enable = true;
@@ -123,6 +136,9 @@
 	# Enable CUPS to print documents.
 	services.printing.enable = true;
 
+    # storage
+    services.udisks2.enable = true;
+
 	# Enable sound with pipewire.
 	hardware.pulseaudio.enable = false;
 	security.rtkit.enable = true;
@@ -140,12 +156,12 @@
 	};
 
 	# Enable touchpad support (enabled default in most desktopManager).
-	services.xserver.libinput.enable = true;
+	# services.xserver.libinput.enable = true;
 
 	# Define a user account. Don't forget to set a password with ‘passwd’.
 	users = {
 		defaultUserShell = pkgs.bash;
-		# extraGroups.vboxusers.members = [ "hos" ];
+		extraGroups.vboxusers.members = [ "hos" ];
 		users.hos = {
 			isNormalUser = true;
 			description = "hos";
@@ -197,10 +213,13 @@
 		fastfetch ueberzug emacs btop terminator zathura unrar rofi dunst links2
 		st dmenu tabbed dwmblocks sxhkd xwallpaper lxappearance libnotify
 		texliveFull xcompmgr libreoffice tree jcal pulsemixer tigervnc krdc
-		lowdown lsof nmap farbfeld sent
+		lowdown lsof nmap farbfeld sent pywal
 
 		# docuemnts
 		linux-manual man-pages man-pages-posix
+
+		# # cinnamon
+		# geany-with-vte vte guake rhythmbox
 
 		# password
 		pass pwgen
@@ -212,10 +231,11 @@
 		julia-lts go gcc ruby lua54Packages.lua
 		lua54Packages.luarocks nodejs_22 python312Packages.pipx python312Full
 		gdb libsForQt5.qca kdePackages.qca pipx
+		java-language-server groovy
 
 		(perl.withPackages(ps: [ ps.ImageMagick ]))
 
-		cmake gnumake
+		cmake gnumake fribidi harfbuzz pkg-config
 		qt5.full qtcreator
 
 		bash-language-server clang-tools_18 cmake-language-server docker-ls gopls
@@ -256,9 +276,9 @@
 		platformTheme = "qt5ct";
 	};
 
-	# nixpkgs.config = {
-	# 	st.conf = builtins.readFile "/home/hos/.local/hos/workflow/st/config.def.h";
-	# };
+	nixpkgs.config = {
+		st.conf = builtins.readFile "/home/hos/.local/hos/workflow/st/config.def.h";
+	};
 
 
 	#nixpkgs.config.qt5 = {

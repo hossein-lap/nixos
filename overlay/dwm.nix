@@ -1,11 +1,15 @@
 (self: super: {
-    dwm = super.st.overrideAttrs (oldAttrs: {
-        pname = "dwm-hos";
-        version = "1.0.0";
-        src = fetchTarball {
-            url = "https://gitlab.com/hos-workflow/dwm/-/archive/master/dwm-master.tar.gz";
-            sha256 = "0mvdznc3grkssa772is7bfnl2m2b9f39gwwhb1ib7gf1f1ibgq9l";
-        };
-        buildInputs = oldAttrs.buildInputs ++ (with super; [ fribidi ]);
-    });
+	dwm = super.dwm.overrideAttrs (oldAttrs: {
+		pname = "dwm-hos";
+		version = "1.0.0";
+		src = super.fetchgit {
+			url = "https://gitlab.com/hos-workflow/dwm.git";
+			rev = "refs/heads/nixos"; # Or specify a commit hash or branch name
+			sha256 = "sha256-tbrL8djapqCj+/7K1a/q6/8d8NcIsokgwWBl99Fbffc=";
+		};
+
+		buildInputs = oldAttrs.buildInputs ++ (with super; [ harfbuzz fribidi pkg-config ]);
+		NIX_CFLAGS_COMPILE = "-I${super.fribidi.dev}/include/fribidi";
+	});
 })
+
