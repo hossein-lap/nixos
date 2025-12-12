@@ -6,7 +6,7 @@ in
 {
 	imports = [
 		./../common/default.nix
-		./../work/sin.nix
+		./../work/default.nix
 	];
 
 	# Enable touchpad support (enabled default in most desktopManager)
