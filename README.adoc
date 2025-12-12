@@ -1,8 +1,9 @@
 = My NixOS configurations
 
-[WARNING]
-I got some deprecation wanrings before. I'm not sure that they've been fixed
-or not, they suddenly didn't show up anymore.
+[NOTE]
+====
+This is latest config. All the deprecated packages / variables are fixed.
+====
 
 == just a reminder
 
