@@ -5,7 +5,36 @@
 This is latest config. All the deprecated packages / variables are fixed.
 ====
 
-== just a reminder
+== Makefile
+
+I've wrote the `Makefile` to use the `./configuration.nix` file as the main
+config file. If you don't want to use `make` or it's not available on your
+system, simply add `--include nixos-config=./configuration.nix` flag into your
+`nixos-rebuild` command.
+
+Available make commands are pretty much the same as `nixos-rebuild`:
+
+* `make test`
+* `make build`
+* `make boot`
+* `make switch`
+
+There is also some extra commands:
+
+. `make clean` -- Which will run `nix-collect-carbage -d` command first, then
+  the `nixos-rebuild switch` afterwards.
+. `make upgrade` -- Which will run `nixos-rebuild boot --upgrade` to upgrade
+  the channels and the whole system.
+. `make readme` -- generates html file from this (README) file using
+  `asciidoctor` to be able to read this file with a better look in a browser.
+
+== TODO
+
+* [ ] Add more about Nix language
+* [ ] Server / NixOps deployment
+* [ ] Different hardware and partition schema
+
+== Nix language syntax short overview
 
 NixOS is a Linux distrbution that uses the Nix Programming language at its best
 to have a declaretive approach for deploying the system.
