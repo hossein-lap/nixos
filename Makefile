@@ -1,9 +1,15 @@
 SUDO = sudo
 CC = nixos-rebuild
-CARGS = -I nixos-config=./configuration.nix
+CARGS = --include nixos-config=./configuration.nix
 
-COMMAND = $(SUDO) $(CC) $(CARGS)
+COMMAND = $(CC) $(CARGS)
 
+all:
+	echo Nothing to do
+
+clean:
+	nix-collect-garbage -d
+	make switch
 
 build:
 	$(COMMAND) build

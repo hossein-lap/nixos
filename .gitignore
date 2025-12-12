@@ -7,7 +7,7 @@ result
 overlay/source
 */source
 source
-work/*
-!work/default.nix
-!work/example.nix
 *.html
+
+# work related
+profiles/work/sin.nix
