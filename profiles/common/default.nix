@@ -44,6 +44,11 @@
                 RPROMPT="(ssh: $ssh_connection_prompt)"
             fi
 		'';
+        shellInit = ''
+        if [ -f "$HOME/.config/shell/zshrc" ]; then
+            source $HOME/.config/shell/zshrc
+        fi
+        '';
 	};
 
 	# enable sound with pipewire
